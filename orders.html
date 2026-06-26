@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orders</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2>Admin</h2>
+
+<ul>
+<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="orders.html" class="active"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+<li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+<li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+<li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="navbar">
+<h2>Orders</h2>
+
+<input type="text" id="searchInput"
+placeholder="Search Customer..."
+onkeyup="searchOrders()">
+
+</div>
+
+<div class="table-box">
+
+<table id="ordersTable">
+
+<thead>
+
+<tr>
+
+<th>Order ID</th>
+<th>Customer</th>
+<th>Product</th>
+<th>Price</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>#1001</td>
+<td>Ali</td>
+<td>Laptop</td>
+<td>$900</td>
+<td style="color:green;">Completed</td>
+</tr>
+
+<tr>
+<td>#1002</td>
+<td>Ahmed</td>
+<td>Phone</td>
+<td>$650</td>
+<td style="color:orange;">Pending</td>
+</tr>
+
+<tr>
+<td>#1003</td>
+<td>Bilal</td>
+<td>Keyboard</td>
+<td>$80</td>
+<td style="color:red;">Cancelled</td>
+</tr>
+
+<tr>
+<td>#1004</td>
+<td>Hamza</td>
+<td>Mouse</td>
+<td>$35</td>
+<td style="color:green;">Completed</td>
+</tr>
+
+<tr>
+<td>#1005</td>
+<td>Usman</td>
+<td>Monitor</td>
+<td>$250</td>
+<td style="color:orange;">Pending</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+function searchOrders(){
+
+let input=document.getElementById("searchInput").value.toUpperCase();
+
+let table=document.getElementById("ordersTable");
+
+let tr=table.getElementsByTagName("tr");
+
+for(let i=1;i<tr.length;i++){
+
+let td=tr[i].getElementsByTagName("td")[1];
+
+if(td){
+
+let txt=td.textContent||td.innerText;
+
+tr[i].style.display=
+txt.toUpperCase().indexOf(input)>-1?"":"none";
+
+}
+
+}
+
+}
+</script>
+
+</body>
+</html>

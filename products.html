@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>Admin</h2>
+
+<ul>
+
+<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+
+<li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+
+<li><a href="products.html" class="active"><i class="fas fa-box"></i> Products</a></li>
+
+<li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+<li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="navbar">
+
+<h2>Products</h2>
+
+<button onclick="addProduct()">+ Add Product</button>
+
+</div>
+
+<div class="table-box">
+
+<input
+type="text"
+id="searchProduct"
+placeholder="Search Product..."
+onkeyup="searchProduct()">
+
+<br><br>
+
+<table id="productTable">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Product</th>
+
+<th>Category</th>
+
+<th>Price</th>
+
+<th>Stock</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>1</td>
+
+<td>Laptop</td>
+
+<td>Electronics</td>
+
+<td>$900</td>
+
+<td>15</td>
+
+<td>
+
+<button onclick="editProduct()">Edit</button>
+
+<button onclick="deleteProduct(this)">Delete</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>2</td>
+
+<td>Phone</td>
+
+<td>Electronics</td>
+
+<td>$600</td>
+
+<td>25</td>
+
+<td>
+
+<button onclick="editProduct()">Edit</button>
+
+<button onclick="deleteProduct(this)">Delete</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>3</td>
+
+<td>Headphones</td>
+
+<td>Accessories</td>
+
+<td>$80</td>
+
+<td>50</td>
+
+<td>
+
+<button onclick="editProduct()">Edit</button>
+
+<button onclick="deleteProduct(this)">Delete</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function addProduct(){
+
+alert("Add Product feature coming soon.");
+
+}
+
+function editProduct(){
+
+alert("Edit Product feature coming soon.");
+
+}
+
+function deleteProduct(btn){
+
+if(confirm("Delete this product?")){
+
+btn.parentElement.parentElement.remove();
+
+}
+
+}
+
+function searchProduct(){
+
+let input=document.getElementById("searchProduct").value.toUpperCase();
+
+let table=document.getElementById("productTable");
+
+let tr=table.getElementsByTagName("tr");
+
+for(let i=1;i<tr.length;i++){
+
+let td=tr[i].getElementsByTagName("td")[1];
+
+if(td){
+
+let txt=td.textContent||td.innerText;
+
+tr[i].style.display=txt.toUpperCase().indexOf(input)>-1?"":"none";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

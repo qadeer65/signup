@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customers</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2>Admin</h2>
+
+<ul>
+<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+<li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
+<li><a href="customers.html" class="active"><i class="fas fa-users"></i> Customers</a></li>
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+<li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="navbar">
+
+<h2>Customers</h2>
+
+<input
+type="text"
+id="searchCustomer"
+placeholder="Search Customer..."
+onkeyup="searchCustomer()">
+
+</div>
+
+<div class="table-box">
+
+<table id="customerTable">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>City</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>Ali Khan</td>
+<td>ali@gmail.com</td>
+<td>03001234567</td>
+<td>Lahore</td>
+<td>
+<button onclick="viewCustomer()">View</button>
+<button onclick="editCustomer()">Edit</button>
+<button onclick="deleteCustomer(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Ahmed Raza</td>
+<td>ahmed@gmail.com</td>
+<td>03111234567</td>
+<td>Karachi</td>
+<td>
+<button onclick="viewCustomer()">View</button>
+<button onclick="editCustomer()">Edit</button>
+<button onclick="deleteCustomer(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Bilal</td>
+<td>bilal@gmail.com</td>
+<td>03221234567</td>
+<td>Islamabad</td>
+<td>
+<button onclick="viewCustomer()">View</button>
+<button onclick="editCustomer()">Edit</button>
+<button onclick="deleteCustomer(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Hamza</td>
+<td>hamza@gmail.com</td>
+<td>03331234567</td>
+<td>Multan</td>
+<td>
+<button onclick="viewCustomer()">View</button>
+<button onclick="editCustomer()">Edit</button>
+<button onclick="deleteCustomer(this)">Delete</button>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function viewCustomer(){
+alert("Customer Details");
+}
+
+function editCustomer(){
+alert("Edit Customer");
+}
+
+function deleteCustomer(btn){
+if(confirm("Delete this customer?")){
+btn.parentElement.parentElement.remove();
+}
+}
+
+function searchCustomer(){
+
+let input=document.getElementById("searchCustomer").value.toUpperCase();
+
+let table=document.getElementById("customerTable");
+
+let tr=table.getElementsByTagName("tr");
+
+for(let i=1;i<tr.length;i++){
+
+let td=tr[i].getElementsByTagName("td")[1];
+
+if(td){
+
+let txt=td.textContent||td.innerText;
+
+tr[i].style.display=
+txt.toUpperCase().indexOf(input)>-1?"":"none";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
